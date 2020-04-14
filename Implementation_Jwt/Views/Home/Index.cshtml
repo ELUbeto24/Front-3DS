@@ -1,0 +1,41 @@
+﻿<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-5 col-md-6">
+            <div class="card">
+                <textarea id="tokenG" hidden="hidden">@ViewData["Token"] </textarea>
+
+                <h5 class="card-header">Demo 3-DS V.2.0</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Price <b>$1,000</b></h5>
+                    <br />
+                    <input type="text" name="FirstName" class="form-control" id="FirstName" placeholder="Your Name" />
+                    <input type="text" name="LastName" class="form-control" id="LastName" placeholder="Your Last Name" />
+                    <input type="text" name="Street" class="form-control" id="Street" placeholder="Street" />
+                    <input type="text" name="City" class="form-control" id="City" placeholder="City" />
+                    <input type="text" name="PostalCode" class="form-control" id="PostalCode" placeholder="Postal Code" />
+                    <input type="text" name="State" class="form-control" id="State" placeholder="State" />
+                    <input type="text" name="Email" class="form-control" id="Email" placeholder="Email" />
+                    <input type="text" name="PhoneNumber" class="form-control" id="PhoneNumber" placeholder="Phone Number" />
+
+                    <hr />
+
+                    <input type="text" class="form-control" id="AccountNumber" placeholder="Card Number" value="4000000000001091" />
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" class="form-control" id="ExpirationYear" placeholder="Year" value="2024" />
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <input type="text" class="form-control" id="ExpirationMonth" placeholder="Month" value="01" />
+                        </div>
+                    </div>
+
+                    <br />
+                    <a class="btn btn-primary" id="btnPagar" onclick="CheckOut();">Pay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
