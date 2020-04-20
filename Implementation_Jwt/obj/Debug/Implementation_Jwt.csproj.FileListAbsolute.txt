@@ -43,3 +43,23 @@
 /Users/edilbertolopezubaldo/Projects/Net/CyberSource 2/Implementation_Jwt/obj/Debug/Implementation_Jwt.dll
 /Users/edilbertolopezubaldo/Projects/Net/CyberSource 2/Implementation_Jwt/obj/Debug/Implementation_Jwt.pdb
 /Users/edilbertolopezubaldo/Projects/Net/CyberSource 2/Implementation_Jwt/obj/Debug/Implementation_Jwt.csproj.CoreCompileInputs.cache
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/Implementation_Jwt.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/Implementation_Jwt.pdb
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/Microsoft.Web.Infrastructure.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.Helpers.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.Mvc.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.Razor.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.WebPages.Deployment.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.WebPages.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.WebPages.Razor.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.Razor.xml
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.Helpers.xml
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.WebPages.Deployment.xml
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.WebPages.xml
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.WebPages.Razor.xml
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/bin/System.Web.Mvc.xml
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/obj/Debug/Implementation_Jwt.csprojAssemblyReference.cache
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/obj/Debug/Implementation_Jwt.csproj.CoreCompileInputs.cache
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/obj/Debug/Implementation_Jwt.csproj.CopyComplete
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/obj/Debug/Implementation_Jwt.dll
+/Users/edilbertolopezubaldo/Projects/Front-3DS/Implementation_Jwt/obj/Debug/Implementation_Jwt.pdb

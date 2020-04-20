@@ -1,5 +1,5 @@
 ﻿var objCard = new Object();
-var _url = 'http://localhost:9898/v1/api/tfaservice/';
+var _url = 'http://localhost:8080/v1/api/tfaservice/';
 
 function CheckOut() {
     var objOrder = new Object;
@@ -8,7 +8,7 @@ function CheckOut() {
     objOrder.referenceID = "Test-" + uuidv4().substring(0,8);
 
     objOrderDetails.OrderNumber = objOrder.referenceID;
-    objOrderDetails.Amount = "350.00";
+    objOrderDetails.Amount = "10.00";
     objOrderDetails.CurrencyCode = "";
     objOrderDetails.OrderDescription = "";
     objOrderDetails.OrderChannel = "";
@@ -98,7 +98,7 @@ function ProceesCardinal(jwt, referenceID, price) {
 
     Cardinal.on('payments.validated', function (data, jwtt) {
         
-        console.log('PARSE: ' + parseJwt(jwtt));
+        /*console.log('PARSE: ' + parseJwt(jwtt));*/
         
         var objValidate = new Object;
 

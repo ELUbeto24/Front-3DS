@@ -73,8 +73,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Helpers\JwtHelper.cs" />
-    <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\Order.cs" />
   </ItemGroup>
