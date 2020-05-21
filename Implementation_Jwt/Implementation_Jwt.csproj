@@ -88,6 +88,7 @@
     <Content Include="Scripts\CardinalJs.js" />
     <Content Include="Scripts\CardinalV2.js" />
     <Content Include="Scripts\CardinalV3.js" />
+    <Content Include="Scripts\Cardinal-PaymentLink.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\jwt-master\src\JWT\JWT.csproj">

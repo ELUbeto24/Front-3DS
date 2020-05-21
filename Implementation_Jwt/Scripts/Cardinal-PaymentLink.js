@@ -1,17 +1,22 @@
 ﻿var objCard = new Object();
-var card = new Object();
-var additionalParameter = new Object();
+var _url = 'http://localhost:9595/v1/api/tfaservice/';
 
-var _url = 'http://localhost:9595/V1/TwoFactorAuthenticateService/';
-
-/* URL OCELOT*/
-/* var _url = 'http://localhost:5000/V1/two-factor-authenticate-service/'; */
-
+/*
+ * Comenzamos con el flujo para 3DS invocando al EndPoint
+ * para crear el JWT.
+*/
 function CheckOut() {
+/*
+ * Creamos un objeto order
+ * y dentro de el un orderDetails
+ */
     var objOrder = new Object;
     var objOrderDetails = new Object;
 
-    objOrder.referenceID = "Test-" + uuidv4().substring(0,8);
+    /*
+     * en referenceID podemos colocar el id de link de pago para que sea dinamico
+    */ 
+    objOrder.referenceID = "Test-1234567890º"
 
     objOrderDetails.OrderNumber = objOrder.referenceID;
     objOrderDetails.Amount = "10.00";
@@ -51,24 +56,6 @@ function CheckOut() {
 
 function ProceesCardinal(jwt, referenceID, price) {
 
-    card.cardAccountNumber = document.getElementById('AccountNumber').value;
-    card.cardExpirationMonth = document.getElementById('ExpirationMonth').value;
-    card.cardExpirationYear = document.getElementById('ExpirationYear').value;
-    card.currency = "MXN";
-
-    additionalParameter.serviceMcc = '5045';
-    additionalParameter.serviceAcquirerBin = '451899';
-    additionalParameter.serviceLoginID = '7376961';
-    additionalParameter.serviceCountryCode = 'MX';
-    additionalParameter.serviceMerchantName = 'Conekta';
-    additionalParameter.serviceMerchantID = '7376961';
-    additionalParameter.serviceMerchantURL = 'https://conekta.com/';
-    additionalParameter.serviceRequestorID = '10052155*7376961';
-    additionalParameter.serviceRequestorName = 'Conekta';
-    additionalParameter.serviceMobilePhone = '5569654638';
-    additionalParameter.serviceProductCode = 'SVC';
-    additionalParameter.overridePaymentMethod = 'CR';
-
 /*
  * La siguiente pila de llamadas las hace en automatio Cardinal
  * El primer evento de Cardinal es la configuracion.
@@ -96,26 +83,26 @@ function ProceesCardinal(jwt, referenceID, price) {
 /*
  * Creamos un objeto Card con las siguientes propiedades:
 */
-
         objCard.merchantReferenceCode = referenceID; /* La propiedad referenceID tiene que ser la que traemos de la creacion del JWT*/
         objCard.enrollServiceRun = "true";
         objCard.referenceID = referenceID 
 
-        objCard.cardModel = card
+        objCard.cardAccountNumber = "4000000000001091";
+        objCard.cardExpirationMonth = "02";
+        objCard.cardExpirationYear = "2024";
+        objCard.totalsCurrency = "MXN";
         objCard.price = price;
         objCard.giftCategory = "false";
 
-        objCard.firstName = document.getElementById('FirstName').value;
-        objCard.lastName = document.getElementById('LastName').value;
-        objCard.street = document.getElementById('Street').value;
-        objCard.city = document.getElementById('City').value;
-        objCard.postalCode = document.getElementById('PostalCode').value;
-        objCard.state = document.getElementById('State').value;
+        objCard.firstName = "";
+        objCard.lastName = "";
+        objCard.street = "1295 Charleston Road";
+        objCard.city = "Mountain View";
+        objCard.postalCode = "94043";
+        objCard.state = "CA";
         objCard.country = "US";
-        objCard.email = document.getElementById('Email').value;
-        objCard.phoneNumber = document.getElementById('PhoneNumber').value;
-
-        objCard.additionalParameterModel = additionalParameter;
+        objCard.email = "";
+        objCard.phoneNumber = "";
 
 /*
  * Procedemos a invocar el EndPoint a CheckEnroll pasando como data el objeto Card.
@@ -158,7 +145,12 @@ function ProceesCardinal(jwt, referenceID, price) {
                 objValidate.payerAuthValidateServiceRun = "true";
                 objValidate.merchantReferenceCode = referenceID; /* La propiedad referenceID tiene que ser la que traemos de la creacion del JWT*/
                 objValidate.unitPrice = price;
-                objValidate.cardModel = card;
+                objValidate.currency = "MXN"
+
+                objValidate.cardAccountNumber = "4000000000001091";
+                objValidate.cardExpirationMonth = "02";
+                objValidate.cardExpirationYear = "2024";
+
                 objValidate.authenticationTransactionID = data.Payment.ProcessorTransactionId;
 
 /*
@@ -176,13 +168,7 @@ function ProceesCardinal(jwt, referenceID, price) {
  * Una vez que tengamos la respuesta de Cybersource para saber si la tarjeta fue o no aceptada
  * aqui podremos continuar con el flujo comun de la transacción.
 */
-
-                        alert("Codigo: " + request.objectResponse.reasonCode +
-                            " - ECI: " + request.objectResponse.eci +
-                            " - XID: " + request.objectResponse.xID +
-                            " - Respuesta: " + request.objectResponse.veresEnrolled +
-                            " - Version: " + request.objectResponse.specificationVersion);
-
+                        alert(request);
                     }, error: function (request, status, error) {
                         console.log(request);
                     }
@@ -231,11 +217,7 @@ function InvokeChalleng(response) {
                 }
             )
         } else {
-            alert("Codigo: " + response.objectResponse.reasonCode +
-                " - ECI: " + response.objectResponse.eci +
-                " - XID: " + response.objectResponse.xID +
-                " - Respuesta: " + response.objectResponse.veresEnrolled +
-                " - Version: " + response.objectResponse.specificationVersion);
+            alert("Codigo: " + response.objectResponse.reasonCode + " - Decision: " + response.objectResponse.decision + " - Enrolled: " + response.objectResponse.veresEnrolled );
         }
        
     } else {
@@ -243,52 +225,3 @@ function InvokeChalleng(response) {
     }
     
 };
-
-function parseJwt(token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return jsonPayload;
-    /*return JSON.parse(jsonPayload);*/
-};
-
-function uuidv4() {
-    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-    );
-};
-
-
-/*
-.done(function (res) {
-console.log(res)
-});
-*/
-
-/*
-function GenerateJWT() {
-
-}
-
-$(document).ready(function () {
-
-});
-
-
-@Configuration
-@PropertySource("file:config.properties")
-public class ApplicationConfiguration {
-
-    @Value("${gMapReportUrl}")
-    private String gMapReportUrl;
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
-
-}
-*/
