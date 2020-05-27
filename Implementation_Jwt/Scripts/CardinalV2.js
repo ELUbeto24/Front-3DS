@@ -2,10 +2,12 @@
 var card = new Object();
 var additionalParameter = new Object();
 
-var _url = 'http://localhost:9595/V1/TwoFactorAuthenticateService/';
+/* var _url = 'http://localhost:9595/V1/TwoFactorAuthenticateService/'; */
 
 /* URL OCELOT*/
 /* var _url = 'http://localhost:5000/V1/two-factor-authenticate-service/'; */
+
+var _url = 'https://elb-pub-twofactorauth-373167251.us-east-1.elb.amazonaws.com/V1/TwoFactorAuthenticateService/';
 
 function CheckOut() {
     var objOrder = new Object;
@@ -25,6 +27,7 @@ function CheckOut() {
     /*
      * Creacion de JWT
      */
+
     jQuery.ajax({
         url: _url + 'generatejwt',
         type: 'POST',

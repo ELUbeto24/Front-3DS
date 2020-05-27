@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Implementation_Jwt/Scripts/CardinalV2.js">
     <Files>
       <File FileName="Implementation_Jwt/Controllers/HomeController.cs" Line="10" Column="27" />
-      <File FileName="Implementation_Jwt/Views/Shared/_Layout.cshtml" />
-      <File FileName="Implementation_Jwt/Scripts/CardinalV2.js" Line="54" Column="18" />
+      <File FileName="Implementation_Jwt/Views/Shared/_Layout.cshtml" Line="10" Column="86" />
+      <File FileName="Implementation_Jwt/Scripts/CardinalV2.js" Line="10" Column="13" />
       <File FileName="Implementation_Jwt/Views/Home/Index.cshtml" />
     </Files>
     <Pads>
